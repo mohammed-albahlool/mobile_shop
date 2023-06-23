@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_shop/screen/launch_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,11 +11,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('mobile shop'),
-        backgroundColor: Colors.black,
-      ),
+    return MaterialApp(
+      initialRoute: '/launch_screen',
+          routes: {
+    '/launch_screen': (context) => const LaunchScreen(),
+
+    },
     );
   }
 }
