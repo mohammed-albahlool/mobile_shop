@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('mobile shop'),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
       ),
     );
   }
