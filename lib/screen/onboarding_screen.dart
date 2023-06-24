@@ -38,7 +38,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           Expanded(
               flex: 3,
               child: PageView(
-            physics: BouncingScrollPhysics(),
+            physics: NeverScrollableScrollPhysics(),
             controller: _pageImageController,
             onPageChanged: (int value) {
               setState(() {
@@ -51,23 +51,29 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               PageOnBoarding(image: 'img_2'),
             ],
           )),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomIndicator(
-                selected: _currentPage == 0,
-                marginEnd: 10,
-              ),
-              CustomIndicator(
-                selected: _currentPage == 1,
-                marginEnd: 10,
-              ),
-              CustomIndicator(selected: _currentPage == 2),
-            ],
+          Padding(
+            padding: const EdgeInsets.only(top: 77,bottom: 50),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomIndicator(
+                  selected: _currentPage == 0,
+                  marginEnd: 10,
+                ),
+                CustomIndicator(
+                  selected: _currentPage == 1,
+                  marginEnd: 10,
+                ),
+                CustomIndicator(selected: _currentPage == 2),
+              ],
+            ),
           ),
           Expanded(
             child: PageView(
-              physics: BouncingScrollPhysics(),
+              // reverse: true,
+              // pageSnapping: false ,
+              // padEnds: false,
+              physics: NeverScrollableScrollPhysics(),
               controller: _pageTextController,
               onPageChanged: (int value) {
                 setState(() {
@@ -89,7 +95,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   Navigator.pushReplacementNamed(context, '/login_screen');
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue.shade800,
+                    backgroundColor: Color(0xFF38972E),
                     minimumSize: Size(double.infinity, 50),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25))),
@@ -101,15 +107,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               child: ElevatedButton(  onPressed: () {
                 if (_currentPage < 2) {
                   _pageImageController.nextPage(
-                      duration: Duration(seconds: 1),
-                      curve: Curves.easeInOutBack);
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeIn);
                   _pageTextController.nextPage(
-                      duration: Duration(seconds: 1),
-                      curve: Curves.easeInOutBack);
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeIn);
                 }
               },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue.shade800,
+                    backgroundColor: Color(0xFF38972E),
                     minimumSize: Size(44, 44),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25)
