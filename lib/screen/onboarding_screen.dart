@@ -45,7 +45,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 _currentPage = value;
               });
             },
-            children: [
+            children: const [
               PageOnBoarding(image: 'img'),
               PageOnBoarding(image: 'img_1'),
               PageOnBoarding(image: 'img_2'),
@@ -74,7 +74,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   _currentPage = value;
                 });
               },
-              children: [
+              children: const [
                 TextOnBoarding(title: "Get the Best Smartphone  ", content: "Lorem Ipsum is simply dummy text of the printing and typesetting.."),
                 TextOnBoarding(title: "Great experince withour product", content: "Lorem Ipsum is simply dummy text of the printing and typesetting.."),
                 TextOnBoarding(title: "Get product from at home", content: "Lorem Ipsum is simply dummy text of the printing and typesetting.."),
@@ -82,7 +82,19 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
           Visibility(
-              visible: _currentPage < 2,
+              visible: _currentPage < 2,replacement: Padding(
+            padding: const EdgeInsets.only(bottom: 95.0,left: 30,right: 30),
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/login_screen');
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue.shade800,
+                    minimumSize: Size(double.infinity, 50),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25))),
+                child: Text('Start')),
+          ) ,
 
           child: Padding(
               padding: const EdgeInsets.only(bottom: 95.0),
@@ -103,28 +115,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         borderRadius: BorderRadius.circular(25)
                     )),
                 child: Icon(Icons.arrow_forward_ios_rounded),),
-            ),replacement: Padding(
-            padding: const EdgeInsets.only(bottom: 95.0,left: 30,right: 30),
-            child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/login_screen');
-                },
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue.shade800,
-                    minimumSize: Size(double.infinity, 50),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25))),
-                child: Text('Start')),
-          ) ,
+            ),
           ),
-          // Visibility(
-          //   visible: _currentPage == 2,
-          //   maintainSize: true,
-          //   maintainState: true,
-          //   maintainAnimation: true,
-          //   child:
-          // ),
-
         ],
       ),),
     );
