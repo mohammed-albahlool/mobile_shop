@@ -58,3 +58,8 @@ android {
 flutter {
     source '../..'
 }
+android {
+      defaultConfig {
+          minSdkVersion 19
+          }
+}

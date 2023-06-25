@@ -92,7 +92,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             padding: const EdgeInsets.only(bottom: 95.0,left: 30,right: 30),
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/login_screen');
+                  Navigator.pushReplacementNamed(context, '/sign_up_screen');
                 },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF38972E),
