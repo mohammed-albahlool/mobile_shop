@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Email',
-                  hintStyle: GoogleFonts.poppins(
+                  hintStyle: TextStyle(
                     color: Colors.grey.shade400,
                     letterSpacing: 1,
                     fontSize: 14,
@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'Password',
-                  hintStyle: GoogleFonts.poppins(
+                  hintStyle: TextStyle(
                     color: Colors.grey.shade400,
                     letterSpacing: 1,
                     fontSize: 14,
@@ -101,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: (){},
                   child: Text(
                     'Forget password?',
-                    style: GoogleFonts.poppins(
+                    style: TextStyle(
                       color: Colors.grey.shade400,
                       fontSize: 12,
                     ),
@@ -110,8 +110,8 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 30),
               ElevatedButton(
-                onPressed: (){},
-                child: Text('LOGIN'),
+                onPressed: () => Navigator.pushNamed(context, '/reset_password_screen'),
+                child: Text('LOGIN',style: TextStyle(fontSize: 16),),
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity  , 50),
                   backgroundColor: Colors.black87,

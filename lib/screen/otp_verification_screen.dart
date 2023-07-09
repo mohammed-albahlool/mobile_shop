@@ -153,7 +153,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
               const SizedBox(height: 25),
               ElevatedButton(
                 onPressed: () {},
-                child: Text('Verify Phone Number'),
+                child: Text('Verify Phone Number',style: TextStyle(fontSize: 16),),
                 style: ElevatedButton.styleFrom(
                   minimumSize : Size(double.infinity, 50),
                   backgroundColor: Colors.green.shade600,
@@ -175,7 +175,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
               ),
               SizedBox(height: 30),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Navigator.pushNamed(context, '/login_screen'),
                 child: Text('Send Again',style: TextStyle(color: Colors.green.shade400),),
                 style: ElevatedButton.styleFrom(
                   minimumSize : Size(50,45),

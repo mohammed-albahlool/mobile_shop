@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-class ResetPasswordScreen extends StatefulWidget {
-  const ResetPasswordScreen({Key? key}) : super(key: key);
+class Reset3PasswordScreen extends StatefulWidget {
+  const Reset3PasswordScreen({Key? key}) : super(key: key);
 
   @override
-  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
+  State<Reset3PasswordScreen> createState() => _Reset3PasswordScreenState();
 }
 
-class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
+class _Reset3PasswordScreenState extends State<Reset3PasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +28,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           child: Column(
             children: [
               const Padding(
-                padding: EdgeInsets.only(top: 70),
+                padding: EdgeInsets.only(top: 100),
                 child: Text(
-                  'Reset password',
+                  'Create new password',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -41,9 +40,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               ),
               const SizedBox(height: 10),
               const Text(
-                'Enter the email associated with your account and'
-                    ' well send an email with instructions to reset your'
-                    ' password!  ',
+                'your new password must be different from'
+                    'previous used passwords',
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 14,
@@ -53,11 +51,40 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               const SizedBox(height: 35),
               TextField(
                 decoration: InputDecoration(
-                  hintText: 'Email address',
+                  hintText: 'Password',
                   hintStyle: TextStyle(
                     color: Colors.grey.shade400,
                     fontSize: 16,
                   ),
+                  prefixIcon: Icon(Icons.lock_outline,color: Colors.green.shade600,),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.green.shade100,
+                      // strokeAlign: StrokeAlign.center,
+                    ),
+                  ),
+
+                  //************************************
+                  suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.green.shade600,
+                    ),
+
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'Confirm password',
+                  hintStyle: TextStyle(
+                    color: Colors.grey.shade400,
+                    fontSize: 16,
+                  ),
+                  prefixIcon: Icon(Icons.lock_outline,color: Colors.green.shade600,),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
@@ -76,10 +103,23 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 45),
+              Padding(
+                padding: const EdgeInsets.only(right: 155),
+                child: TextButton(
+                  onPressed: (){},
+                  child: Text(
+                    'Must Be At Least 8 Characters.',
+                    style: TextStyle(
+                      color: Colors.grey.shade400,
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
               ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/reset2_password_screen'),
-                child: Text(' Next',style: TextStyle(fontSize: 16),),
+                onPressed: () {},
+                child: Text(' Confirm',style: TextStyle(fontSize: 16),),
                 style: ElevatedButton.styleFrom(
                   minimumSize : Size(double.infinity, 50),
                   backgroundColor: Colors.green.shade600,
