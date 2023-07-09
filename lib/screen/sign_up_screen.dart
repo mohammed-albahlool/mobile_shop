@@ -10,18 +10,28 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  late TextEditingController textEditingController;
-  late bool checked=false;
+  late TextEditingController fullNameTextEditingController;
+  late TextEditingController emailTextEditingController;
+  late TextEditingController passwordTextEditingController;
+  late TextEditingController confirmPasswordTextEditingController;
+  late bool checked = false;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    textEditingController=TextEditingController();
+    fullNameTextEditingController =TextEditingController();
+    emailTextEditingController =TextEditingController();
+    passwordTextEditingController =TextEditingController();
+    confirmPasswordTextEditingController =TextEditingController();
   }
 
   @override
   void dispose() {
-    textEditingController.dispose();
+    fullNameTextEditingController.dispose();
+    emailTextEditingController.dispose();
+    passwordTextEditingController.dispose();
+    confirmPasswordTextEditingController.dispose();
     super.dispose();
   }
 
@@ -34,23 +44,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(25.0),
+          padding: EdgeInsets.symmetric(horizontal: 25.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Text(
-                    "Sign ",
-                    style: GoogleFonts.roboto(
-                        fontSize: 40, fontWeight: FontWeight.w700),
-                  ),
-                  Text("Up",
+              Padding(
+                padding: const EdgeInsets.only(top:90.0),
+                child:  Row(
+                  children: [
+                    Text(
+                      "Sign ",
                       style: GoogleFonts.roboto(
-                          fontSize: 40,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xff38972e)))
-                ],
+                          fontSize: 40, fontWeight: FontWeight.w700),
+                    ),
+                    Text("Up",
+                        style: GoogleFonts.roboto(
+                            fontSize: 40,
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xff38972e)))
+                  ],
+                ),
               ),
               SizedBox(
                 height: 10,
@@ -63,37 +76,93 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(
                 height: 70,
               ),
-
-              TFWidget(textEditingController: textEditingController, hint: "Full name", secure: false,icons:'profile'),
+              TFWidget(
+                  textEditingController: fullNameTextEditingController,
+                  hint: "Full name",
+                  secure: false,
+                  icons: 'profile'),
               SizedBox(
                 height: 14,
               ),
-              TFWidget(textEditingController: textEditingController, hint: "Email or phone", secure: false,icons:'email'),
+              TFWidget(
+                  textEditingController: emailTextEditingController,
+                  hint: "Email or phone",
+                  secure: false,
+                  icons: 'email'),
               SizedBox(
                 height: 14,
               ),
-              TFWidget(textEditingController: textEditingController, hint: "Password", secure: false,icons:'lock'),
+              TFWidget(
+                  textEditingController: passwordTextEditingController,
+                  hint: "Password",
+                  secure: false,
+                  icons: 'lock'),
               SizedBox(
                 height: 14,
               ),
-              TFWidget(textEditingController: textEditingController, hint: "Confirm password", secure: false,icons:'lock'),
+              TFWidget(
+                  textEditingController: confirmPasswordTextEditingController,
+                  hint: "Confirm password",
+                  secure: false,
+                  icons: 'lock'),
               SizedBox(
                 height: 14,
               ),
-              CheckboxListTile(
-                  title: Text("Agree with trams and condition."),
-                  activeColor: Color(0xff38972e),
-                  checkColor: Colors.white, value: checked, onChanged: (bool? value) {
-                if (value != null) {
-                  setState(() {
-                    checked = value;
-                  });
-                }
-              },
-                 ),
+              Container(
+                child: Row(
+                  children: [
+                    Checkbox(
+                      activeColor: Color(0xff38972e),
+                      checkColor: Colors.white,
+                      value: checked,
+                      onChanged: (bool? value) {
+                        if (value != null) {
+                          setState(() {
+                            checked = value;
+                          });
+                        }
+                      },
+                    ),
+                    Text("Agree with trams and condition.")
+                  ],
+                ),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/otp_verification_screen');
+                  },
+                  child: Text('Sign Up'),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF414138),
+                      minimumSize: Size(double.infinity, 44),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6)))),
+              Padding(
+                padding: const EdgeInsets.only(top:90.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
 
-
-
+                  children: [
+                    Text(
+                      "Have an account? ",
+                      style: GoogleFonts.poppins(
+                          fontSize: 16, color: Color(0xff828282)),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/register_screen');
+                      },
+                      child: Text(
+                        "Log In",
+                        style: GoogleFonts.poppins(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff38972e)),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
