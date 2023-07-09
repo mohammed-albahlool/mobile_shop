@@ -20,7 +20,7 @@ class PageOnBoarding extends StatelessWidget {
       child: Column(
 
         children: [
-          Image.asset('images/$image.png',height: 413,width: 275,),
+          Image.asset('images/$image.png',height: 350,width: 275,),
 
 
         ],
